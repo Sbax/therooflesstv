@@ -19,8 +19,6 @@ const Center = styled.section`
   flex-direction: column;
   align-items: center;
 
-  height: 100%;
-
   padding-top: 15vh;
 
   @media only screen and (max-width: ${breakpoints.tablet}) {
