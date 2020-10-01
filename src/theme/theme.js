@@ -4,6 +4,8 @@ export const colors = {
   greenSheen: '#6bA69D',
   orangeWeb: '#FCA311',
   eerieBlack: '#191919',
+
+  tomatoRed: '#e53935',
 };
 
 export const theme = {

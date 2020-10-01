@@ -1,16 +1,17 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
-import styled from 'styled-components';
-import Container from './styled/Container';
-import Hogwarts from './svgs/components/Hogwarts';
-import { breakpoints, fontFamily } from './theme/theme';
-
 import {
-  faTwitch,
   faDiscord,
   faInstagram,
   faTelegram,
+  faTwitch,
 } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import chroma from 'chroma-js';
+import React from 'react';
+import styled from 'styled-components';
+import { announcement } from './data/home.json';
+import Container from './styled/Container';
+import Hogwarts from './svgs/components/Hogwarts';
+import { breakpoints, colors, fontFamily } from './theme/theme';
 
 const Center = styled.section`
   display: flex;
@@ -61,6 +62,15 @@ const Icons = styled.div`
   }
 `;
 
+const Announcement = styled.section`
+  background: ${chroma(colors.tomatoRed).alpha(0.3)};
+
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 2em rgba(0, 0, 0, 0.25), 0 0.15em 0.75em rgba(0, 0, 0, 0.22);
+`;
+
 const Home = () => {
   return (
     <Container as="main">
@@ -91,6 +101,10 @@ const Home = () => {
             <FontAwesomeIcon icon={faTelegram} />
           </a>
         </Icons>
+
+        {announcement && (
+          <Announcement dangerouslySetInnerHTML={{ __html: announcement }} />
+        )}
       </Center>
     </Container>
   );
