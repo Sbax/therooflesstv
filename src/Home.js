@@ -22,7 +22,7 @@ const Center = styled.section`
 
   padding-top: 15vh;
 
-  @media only screen and (max-width: ${breakpoints.desktop}) {
+  @media only screen and (max-width: ${breakpoints.tablet}) {
     font-size: 12px;
   }
 
