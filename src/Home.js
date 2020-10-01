@@ -9,6 +9,7 @@ import chroma from 'chroma-js';
 import React from 'react';
 import styled from 'styled-components';
 import { announcement } from './data/home.json';
+import Navbar from './Navbar';
 import Container from './styled/Container';
 import Hogwarts from './svgs/components/Hogwarts';
 import { breakpoints, colors, fontFamily } from './theme/theme';
@@ -74,6 +75,7 @@ const Announcement = styled.section`
 const Home = () => {
   return (
     <Container as="main">
+      <Navbar />
       <Illustration>
         <Hogwarts />
       </Illustration>

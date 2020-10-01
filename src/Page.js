@@ -8,7 +8,7 @@ const Container = styled.section`
   padding: 2rem;
 
   @media only screen and (min-width: ${breakpoints.tablet}) {
-    padding: 2rem 3rem;
+    padding: 1.5rem 3rem;
   }
 
   > * + * {

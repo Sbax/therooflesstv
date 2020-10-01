@@ -1,25 +1,34 @@
+import { faHatWizard } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import styled from 'styled-components';
 import { Link, useRoute } from 'wouter';
 import NoPage from './NoPage';
+import NotFound from './NotFound';
 import Page from './Page';
 import { breakpoints, fontFamily, theme } from './theme/theme';
 
 const Sidebar = styled.aside`
-  padding: 2rem;
+  background: ${theme.primary};
+  padding: 0 3rem;
+`;
+
+const HomeIcon = styled.span`
+  display: inline-block;
+  font-size: 2rem;
+  padding: 1.5rem 0;
 `;
 
 const Title = styled.h1`
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-weight: bold;
   font-family: ${fontFamily.serif};
+  margin-bottom: 1rem;
 `;
 
 const List = styled.ul`
-  background: ${theme.primary};
   color: ${theme.offWhite};
-  height: 100%;
-  padding: 1rem 0;
+
   margin-left: 0.5rem;
 
   > li {
@@ -93,9 +102,19 @@ const Pages = () => {
 
   const [match, params] = useRoute('/pages/:slug');
 
+  const page = match && pages.find(({ slug }) => slug === params.slug);
+  if (match && !page) {
+    return <NotFound />;
+  }
+
   return (
     <Container className={match && 'matches'}>
       <Sidebar>
+        <Link href="/">
+          <HomeIcon>
+            <FontAwesomeIcon icon={faHatWizard} />
+          </HomeIcon>
+        </Link>
         <Title>Pagine</Title>
         <List>
           {pages.map(({ slug, title }) => (
@@ -114,7 +133,6 @@ const Pages = () => {
         ) : (
           (() => {
             const page = pages.find(({ slug }) => slug === params.slug);
-
             return <Page page={page} />;
           })()
         )}

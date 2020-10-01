@@ -1,6 +1,6 @@
 export const colors = {
   russianViolet: '#6E4D81',
-  jagger: '#3D3149',
+  jagger: '#50455b',
   floralWhite: '#FCF8F0',
   greenSheen: '#6bA69D',
   orangeWeb: '#FCA311',

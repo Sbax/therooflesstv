@@ -16,15 +16,18 @@ const Container = styled.section`
   }
 
   > span {
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 3rem;
+
+    &.face {
+      font-family: Arial, Helvetica, sans-serif;
+    }
   }
 `;
 
 const NoPage = () => {
   return (
     <Container>
-      <span>╰( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ </span>
+      <span class="face">╰( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ </span>
       <span>Scegli una pagina</span>
     </Container>
   );
