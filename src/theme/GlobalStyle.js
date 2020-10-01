@@ -11,8 +11,8 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: ${fontFamily.sans}, serif;
-    color: ${theme.offBlack};
-    background: ${theme.offWhite}
+    color: ${theme.offWhite};
+    background: ${theme.primary}
   }
 
   *, *:before, *:after {
@@ -20,14 +20,22 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: ${theme.primary};
+    color: ${theme.accent};
     text-decoration: none;
 
-    transition: color 300ms ease-in-out;
+    transition: opacity 300ms ease-in-out;
 
     &:hover {
-      opacity: .5;
+      opacity: .75;
     }
+  }
+
+  b {
+    font-weight: bold;
+  }
+
+  i {
+    font-style: italic;
   }
 `;
 

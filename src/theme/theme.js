@@ -1,5 +1,5 @@
 export const colors = {
-  russianViolet: '#3a0842',
+  russianViolet: '#6E4D81',
   floralWhite: '#FCF8F0',
   greenSheen: '#6bA69D',
   orangeWeb: '#FCA311',
