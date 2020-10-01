@@ -127,16 +127,7 @@ const Pages = () => {
           ))}
         </List>
       </Sidebar>
-      <Content>
-        {!match ? (
-          <NoPage />
-        ) : (
-          (() => {
-            const page = pages.find(({ slug }) => slug === params.slug);
-            return <Page page={page} />;
-          })()
-        )}
-      </Content>
+      <Content>{!match ? <NoPage /> : <Page page={page} />}</Content>
     </Container>
   );
 };
