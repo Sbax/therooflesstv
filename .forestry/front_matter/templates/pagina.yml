@@ -32,3 +32,5 @@ fields:
     labelField: 
   label: Contenuto
   description: Ogni voce inserita sarà una sezione della pagina
+pages:
+- src/data/pages/presentazioni.json
