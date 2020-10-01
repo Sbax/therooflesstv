@@ -15,7 +15,7 @@ const Container = styled.div`
   }
 
   .cls-3 {
-    fill: #ebc564;
+    fill: #916a6b;
     animation: animate 5s linear infinite alternate-reverse;
 
     @keyframes animate {
@@ -24,7 +24,7 @@ const Container = styled.div`
       }
 
       100% {
-        fill: #ebc564;
+        fill: #916a6b;
       }
     }
   }
