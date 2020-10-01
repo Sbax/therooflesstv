@@ -14,12 +14,21 @@ fields:
     maxSize: 64
   label: Immagine
   description: Preferibilmente in 16:9
-- name: body
-  type: textarea
-  default: ''
+- name: content
+  type: field_group_list
+  fields:
+  - name: body
+    type: textarea
+    default: ''
+    config:
+      required: true
+      wysiwyg: true
+      schema:
+        format: html-blocks
+    label: Body
   config:
-    required: true
-    wysiwyg: true
-    schema:
-      format: html-blocks
+    min: 1
+    max: 
+    labelField: 
   label: Contenuto
+  description: Ogni voce inserita sarà una sezione della pagina
