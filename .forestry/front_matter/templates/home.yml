@@ -2,25 +2,6 @@
 label: Home
 hide_body: true
 fields:
-- name: social
-  type: field_group_list
-  fields:
-  - name: url
-    type: text
-    config:
-      required: false
-    label: URL
-  - name: label
-    type: text
-    config:
-      required: false
-    label: Label
-  config:
-    min: 
-    max: 
-    labelField: 
-  label: Social
-  description: I link di tutti i social therooflesstv
 - name: announcement
   type: textarea
   default: ''
