@@ -8,6 +8,12 @@ sections:
   path: src/data
   label: Home
   match: "**/*"
+- type: directory
+  path: src/data/pages
+  label: Pagine
+  create: documents
+  match: "**/*"
+  new_doc_ext: ".json"
 upload_dir: public/uploads
 public_path: "/uploads"
 front_matter_path: ''
