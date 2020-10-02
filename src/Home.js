@@ -89,7 +89,7 @@ const Home = () => {
             <FontAwesomeIcon icon={faTwitch} />
           </a>
 
-          <a href="https://discord.gg/NrpcNP">
+          <a href="https://discord.gg/eJsJwxW">
             <FontAwesomeIcon icon={faDiscord} />
           </a>
 
