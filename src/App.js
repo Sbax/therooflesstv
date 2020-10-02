@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'wouter';
+import About from './About';
 import Home from './Home';
 import NotFound from './NotFound';
 import Pages from './Pages';
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" component={Home} />
         <Route path="/pages" component={Pages} />
         <Route path="/pages/:slug" component={Pages} />
+        <Route path="/about" component={About} />
 
         <Route>
           <NotFound />

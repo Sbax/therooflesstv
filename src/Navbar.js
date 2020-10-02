@@ -22,6 +22,13 @@ const Container = styled.header`
 
 const HomeIcon = styled.span`
   font-size: 2rem;
+  cursor: pointer;
+
+  transition: opacity 300ms ease-in-out;
+
+  &:hover {
+    opacity: 0.75;
+  }
 `;
 
 const Navigation = styled.nav`
@@ -40,7 +47,8 @@ const Navbar = () => {
       </HomeIcon>
 
       <Navigation>
-        <Link href="/pages">Sfoglia la Lore</Link>
+        <Link href="/pages">Leggi la storia</Link>
+        <Link href="/about">About</Link>
       </Navigation>
     </Container>
   );

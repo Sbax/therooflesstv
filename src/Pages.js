@@ -14,9 +14,28 @@ const Sidebar = styled.aside`
 `;
 
 const HomeIcon = styled.span`
-  display: inline-block;
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
   font-size: 2rem;
   padding: 1.5rem 0;
+
+  font-family: ${fontFamily.serif};
+
+  cursor: pointer;
+
+  transition: opacity 300ms ease-in-out;
+
+  > span {
+    line-height: 0.68;
+    margin-left: 0.5rem;
+    font-size: 1.5rem;
+  }
+
+  &:hover {
+    opacity: 0.75;
+  }
 `;
 
 const Title = styled.h1`
@@ -113,6 +132,7 @@ const Pages = () => {
         <Link href="/">
           <HomeIcon>
             <FontAwesomeIcon icon={faHatWizard} />
+            <span>TheRooflessTV</span>
           </HomeIcon>
         </Link>
         <Title>Pagine</Title>
