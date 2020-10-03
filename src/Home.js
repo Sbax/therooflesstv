@@ -3,6 +3,7 @@ import {
   faInstagram,
   faTelegram,
   faTwitch,
+  faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import chroma from 'chroma-js';
@@ -20,13 +21,14 @@ const Center = styled.section`
   align-items: center;
 
   padding-top: 15vh;
+  line-height: 1.4;
 
   @media only screen and (max-width: ${breakpoints.tablet}) {
     font-size: 12px;
   }
 
   > * + * {
-    margin-top: 0.75em;
+    margin-top: 0.5em;
   }
 `;
 
@@ -62,12 +64,14 @@ const Icons = styled.div`
 `;
 
 const Announcement = styled.section`
+  font-size: 16px;
   background: ${chroma(colors.tomatoRed).alpha(0.3)};
 
-  padding: 2rem;
-  margin: 2rem;
-  border-radius: 1rem;
+  padding: 1.5em;
+  margin: 2em;
+  border-radius: 1em;
   box-shadow: 0 0 2em rgba(0, 0, 0, 0.25), 0 0.15em 0.75em rgba(0, 0, 0, 0.22);
+  text-align: center;
 `;
 
 const Home = () => {
@@ -99,6 +103,10 @@ const Home = () => {
 
           <a href="https://t.me/TheRoofless">
             <FontAwesomeIcon icon={faTelegram} />
+          </a>
+
+          <a href="https://www.youtube.com/channel/UCy6WaQC3w5UNgSfrKLqFEhA">
+            <FontAwesomeIcon icon={faYoutube} />
           </a>
         </Icons>
 

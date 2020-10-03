@@ -80,7 +80,7 @@ const Container = styled.main`
   grid-template-columns: 1fr 3fr;
 
   > * {
-    height: 100%;
+    min-height: 100%;
   }
 
   @media only screen and (max-width: ${breakpoints.tablet}) {
