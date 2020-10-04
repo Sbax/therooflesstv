@@ -22,6 +22,7 @@ fields:
       format: markdown
   label: Descrizione
 pages:
+- src/data/subjects/cura-delle-creature-magiche.json
 - src/data/subjects/difesa-contro-arti-oscure.json
 - src/data/subjects/incantesimi.json
 - src/data/subjects/pozioni.json
