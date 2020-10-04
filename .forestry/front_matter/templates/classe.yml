@@ -22,6 +22,7 @@ fields:
       format: markdown
   label: Descrizione
 pages:
+- src/data/subjects/aritmanzia.json
 - src/data/subjects/astronomia.json
 - src/data/subjects/babbanologia.json
 - src/data/subjects/cura-delle-creature-magiche.json
