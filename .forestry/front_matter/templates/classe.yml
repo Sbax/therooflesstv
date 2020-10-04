@@ -22,4 +22,5 @@ fields:
       format: markdown
   label: Descrizione
 pages:
+- src/data/subjects/difesa-contro-arti-oscure.json
 - src/data/subjects/incantesimi.json
