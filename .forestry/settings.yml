@@ -15,6 +15,14 @@ sections:
   new_doc_ext: json
   templates:
   - pagina
+- type: directory
+  path: src/data/subjects
+  label: Classi
+  create: documents
+  match: "**/*"
+  new_doc_ext: json
+  templates:
+  - classe
 upload_dir: public/uploads
 public_path: "/uploads"
 front_matter_path: ''
