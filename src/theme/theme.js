@@ -28,4 +28,5 @@ export const fontFamily = {
 
 export const breakpoints = {
   tablet: `${992}px`,
+  desktop: `${1024}px`,
 };

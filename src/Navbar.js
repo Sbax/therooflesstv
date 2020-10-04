@@ -3,16 +3,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'wouter';
-import { theme } from './theme/theme';
+import { breakpoints, theme } from './theme/theme';
 
 const Container = styled.header`
   background: ${theme.primary};
   padding: 1.5rem 2rem;
-  padding-bottom: 0;
 
+  position: sticky;
+  top: 0;
+  z-index: 1;
+`;
+
+const Content = styled.section`
+  max-width: ${breakpoints.desktop};
+  margin: auto;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 
   a {
     color: ${theme.offWhite};
@@ -40,16 +47,19 @@ const Navigation = styled.nav`
 const Navbar = () => {
   return (
     <Container>
-      <HomeIcon>
-        <Link href="/">
-          <FontAwesomeIcon icon={faHatWizard} />
-        </Link>
-      </HomeIcon>
+      <Content>
+        <HomeIcon>
+          <Link href="/">
+            <FontAwesomeIcon icon={faHatWizard} />
+          </Link>
+        </HomeIcon>
 
-      <Navigation>
-        <Link href="/pages">Leggi la storia</Link>
-        <Link href="/about">About</Link>
-      </Navigation>
+        <Navigation>
+          <Link href="/pages">Leggi la storia</Link>
+          <Link href="/subjects">Lezioni</Link>
+          <Link href="/about">About</Link>
+        </Navigation>
+      </Content>
     </Container>
   );
 };

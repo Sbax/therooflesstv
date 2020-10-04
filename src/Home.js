@@ -10,9 +10,8 @@ import chroma from 'chroma-js';
 import React from 'react';
 import styled from 'styled-components';
 import { announcement } from './data/home.json';
+import DecoratedPage from './DecoratedPage';
 import Navbar from './Navbar';
-import Container from './styled/Container';
-import Hogwarts from './svgs/components/Hogwarts';
 import { breakpoints, colors, fontFamily } from './theme/theme';
 
 const Center = styled.section`
@@ -46,14 +45,6 @@ const Subtitle = styled.h2`
   text-align: center;
 `;
 
-const Illustration = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
-`;
-
 const Icons = styled.div`
   font-size: 2.5em;
   display: flex;
@@ -76,45 +67,46 @@ const Announcement = styled.section`
 
 const Home = () => {
   return (
-    <Container as="main">
+    <>
       <Navbar />
-      <Illustration>
-        <Hogwarts />
-      </Illustration>
-      <Center>
-        <Title>The Roofless TV</Title>
-        <Subtitle>
-          Live <i>quasi</i> 24/7 solo su{' '}
-          <a href="https://twitch.tv/therooflesstv">twitch.tv/therooflesstv</a>
-        </Subtitle>
+      <DecoratedPage>
+        <Center>
+          <Title>The Roofless TV</Title>
+          <Subtitle>
+            Live <i>quasi</i> 24/7 solo su{' '}
+            <a href="https://twitch.tv/therooflesstv">
+              twitch.tv/therooflesstv
+            </a>
+          </Subtitle>
 
-        <Icons>
-          <a href="https://www.twitch.tv/therooflesstv">
-            <FontAwesomeIcon icon={faTwitch} />
-          </a>
+          <Icons>
+            <a href="https://www.twitch.tv/therooflesstv">
+              <FontAwesomeIcon icon={faTwitch} />
+            </a>
 
-          <a href="https://discord.gg/eJsJwxW">
-            <FontAwesomeIcon icon={faDiscord} />
-          </a>
+            <a href="https://discord.gg/eJsJwxW">
+              <FontAwesomeIcon icon={faDiscord} />
+            </a>
 
-          <a href="https://www.instagram.com/therooflesstv/">
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
+            <a href="https://www.instagram.com/therooflesstv/">
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
 
-          <a href="https://t.me/TheRoofless">
-            <FontAwesomeIcon icon={faTelegram} />
-          </a>
+            <a href="https://t.me/TheRoofless">
+              <FontAwesomeIcon icon={faTelegram} />
+            </a>
 
-          <a href="https://www.youtube.com/channel/UCy6WaQC3w5UNgSfrKLqFEhA">
-            <FontAwesomeIcon icon={faYoutube} />
-          </a>
-        </Icons>
+            <a href="https://www.youtube.com/channel/UCy6WaQC3w5UNgSfrKLqFEhA">
+              <FontAwesomeIcon icon={faYoutube} />
+            </a>
+          </Icons>
 
-        {announcement && (
-          <Announcement dangerouslySetInnerHTML={{ __html: announcement }} />
-        )}
-      </Center>
-    </Container>
+          {announcement && (
+            <Announcement dangerouslySetInnerHTML={{ __html: announcement }} />
+          )}
+        </Center>
+      </DecoratedPage>
+    </>
   );
 };
 

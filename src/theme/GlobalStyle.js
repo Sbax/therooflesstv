@@ -5,14 +5,18 @@ import { theme, fontFamily } from './theme';
 const GlobalStyle = createGlobalStyle`
   ${reset}
 
-  html, body, #root {
+  html, body {
       height: 100%;
+  }
+
+  #root {
+    min-height: 100%;
   }
 
   body {
     font-family: ${fontFamily.sans}, serif;
     color: ${theme.offWhite};
-    background: ${theme.primary}
+    background: ${theme.grey}
   }
 
   *, *:before, *:after {
