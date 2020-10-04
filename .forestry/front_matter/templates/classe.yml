@@ -22,6 +22,7 @@ fields:
       format: markdown
   label: Descrizione
 pages:
+- src/data/subjects/antiche-rune.json
 - src/data/subjects/aritmanzia.json
 - src/data/subjects/astronomia.json
 - src/data/subjects/babbanologia.json
