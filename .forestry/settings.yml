@@ -9,7 +9,7 @@ sections:
   label: Home
 - type: directory
   path: src/data/pages
-  label: Pagine
+  label: Storia
   create: documents
   match: "**/*"
   new_doc_ext: json
