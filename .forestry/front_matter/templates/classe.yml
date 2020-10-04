@@ -1,4 +1,23 @@
 ---
 label: Classe
 hide_body: true
-fields: []
+fields:
+- name: subject
+  type: text
+  config:
+    required: true
+  label: Materia
+- name: teacher
+  type: text
+  config:
+    required: true
+  label: Professore
+- name: description
+  type: textarea
+  default: ''
+  config:
+    required: true
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: Descrizione
