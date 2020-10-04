@@ -30,3 +30,4 @@ pages:
 - src/data/subjects/erbologia.json
 - src/data/subjects/incantesimi.json
 - src/data/subjects/pozioni.json
+- src/data/subjects/volo.json
