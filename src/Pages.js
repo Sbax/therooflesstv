@@ -80,7 +80,7 @@ const Container = styled.main`
   grid-template-columns: 1fr 3fr;
 
   > * {
-    min-height: 100%;
+    height: 100%;
   }
 
   @media only screen and (max-width: ${breakpoints.tablet}) {
@@ -88,6 +88,7 @@ const Container = styled.main`
 
     ${Content} {
       display: none;
+      overflow: scroll;
     }
 
     &.matches {

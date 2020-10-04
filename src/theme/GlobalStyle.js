@@ -5,12 +5,9 @@ import { theme, fontFamily } from './theme';
 const GlobalStyle = createGlobalStyle`
   ${reset}
 
-  html, body {
-      height: 100%;
-  }
-
-  #root {
-    min-height: 100%;
+  html, body, #root {
+    height: 100%;
+    overflow: auto;
   }
 
   body {
