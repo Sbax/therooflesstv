@@ -12,5 +12,8 @@ fields:
       format: html-blocks
   label: Announcement
   description: Messaggio da mostrare sulla home come annuncio speciale
+- name: showAnnouncement
+  type: boolean
+  label: Mostra Annuncio
 pages:
 - src/data/home.json
