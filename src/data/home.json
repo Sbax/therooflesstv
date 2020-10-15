@@ -1,3 +1,4 @@
 {
-  "announcement": "<p></p>"
+  "announcement": "<p></p>",
+  "showAnnouncement": true
 }
