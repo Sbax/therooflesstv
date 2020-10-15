@@ -27,7 +27,7 @@ const Container = styled.section`
 const NoPage = () => {
   return (
     <Container>
-      <span class="face">╰( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ </span>
+      <span class="face">(งಠ_ಠ)ง</span>
       <span>Scegli una pagina</span>
     </Container>
   );

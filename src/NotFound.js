@@ -38,7 +38,7 @@ const NotFound = () => {
       <Navbar />
       <DecoratedPage>
         <Center>
-          <span class="face">╰(•̀ 3 •́)━☆ﾟ.*･｡ﾟ</span>
+          <span class="face">(ง ° ͜ ʖ °)ง</span>
           <span>Non c'è un ca* qui</span>
           <span className="call-to-action">
             Torna alla <Link href="/">home</Link>
