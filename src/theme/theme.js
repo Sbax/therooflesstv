@@ -8,6 +8,12 @@ export const colors = {
 
   blackMarlin: '#37393F',
   tomatoRed: '#e53935',
+
+  hanBlue: '#46619d',
+  sanJuan: '#435766',
+
+  sanMarino: '#0D32AC',
+  teak: '#B39165',
 };
 
 export const theme = {
@@ -15,14 +21,14 @@ export const theme = {
   offWhite: colors.floralWhite,
   grey: colors.blackMarlin,
 
-  primary: colors.russianViolet,
-  primaryDark: colors.jagger,
+  primary: colors.hanBlue,
+  primaryDark: colors.sanJuan,
   secondary: colors.greenSheen,
   accent: colors.orangeWeb,
 };
 
 export const fontFamily = {
-  serif: "'Libre Baskerville', serif",
+  serif: "'Roboto Slab', serif",
   sans: "'Open Sans', sans-serif",
 };
 

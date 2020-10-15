@@ -1,4 +1,4 @@
-import { faHatWizard } from '@fortawesome/free-solid-svg-icons';
+import { faUserNinja } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import styled from 'styled-components';
@@ -50,7 +50,7 @@ const Navbar = () => {
       <Content>
         <HomeIcon>
           <Link href="/">
-            <FontAwesomeIcon icon={faHatWizard} />
+            <FontAwesomeIcon icon={faUserNinja} />
           </Link>
         </HomeIcon>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Hogwarts from './svgs/components/Hogwarts';
+import Village from './svgs/components/Village';
 import { breakpoints, theme } from './theme/theme';
 
 const Container = styled.section`
@@ -21,13 +21,21 @@ const Illustration = styled.div`
 
   display: flex;
   align-items: flex-end;
+  overflow: hidden;
+
+  > * {
+    position: absolute;
+    bottom: -1rem;
+    width: 100%;
+    opacity: 0.6;
+  }
 `;
 
 const DecoratedPage = ({ children }) => {
   return (
     <Container as="main">
       <Illustration>
-        <Hogwarts />
+        <Village />
       </Illustration>
       {children}
     </Container>

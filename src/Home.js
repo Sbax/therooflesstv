@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import chroma from 'chroma-js';
 import React from 'react';
 import styled from 'styled-components';
-import { announcement } from './data/home.json';
+import { announcement, showAnnouncement } from './data/home.json';
 import DecoratedPage from './DecoratedPage';
 import Navbar from './Navbar';
 import { breakpoints, colors, fontFamily } from './theme/theme';
@@ -56,7 +56,7 @@ const Icons = styled.div`
 
 const Announcement = styled.section`
   font-size: 16px;
-  background: ${chroma(colors.tomatoRed).alpha(0.3)};
+  background: ${chroma(colors.tomatoRed).alpha(0.6)};
 
   padding: 1.5em;
   margin: 2em;
@@ -101,7 +101,7 @@ const Home = () => {
             </a>
           </Icons>
 
-          {announcement && (
+          {showAnnouncement && announcement && (
             <Announcement dangerouslySetInnerHTML={{ __html: announcement }} />
           )}
         </Center>
