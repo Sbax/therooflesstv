@@ -8,6 +8,12 @@ fields:
   config:
     required: true
   label: Titolo
+- name: slug
+  type: text
+  config:
+    required: true
+  label: slug
+  description: Nome breve per la pagina
 - name: picture
   type: file
   config:
