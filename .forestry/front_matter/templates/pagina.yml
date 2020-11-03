@@ -33,6 +33,6 @@ fields:
   label: Contenuto
   description: Ogni voce inserita sarà una sezione della pagina
 pages:
+- src/data/pages/01-presentazioni.json
 - src/data/pages/hodwarts.json
-- src/data/pages/presentazioni.json
 - src/data/pages/shinobi.json
