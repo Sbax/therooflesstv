@@ -35,3 +35,4 @@ fields:
 pages:
 - src/data/pages/hodwarts.json
 - src/data/pages/presentazioni.json
+- src/data/pages/villaggio-di-kanoa-terra-degli-shinobi.json
