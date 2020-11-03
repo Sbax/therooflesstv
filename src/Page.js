@@ -1,10 +1,13 @@
+import chroma from 'chroma-js';
 import React from 'react';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import { Link as WouterLink } from 'wouter';
-import { breakpoints, fontFamily } from './theme/theme';
+import { breakpoints, fontFamily, theme } from './theme/theme';
 
 const Container = styled.section`
+  max-height: 100vh;
+  overflow: auto;
   padding: 2rem;
 
   @media only screen and (min-width: ${breakpoints.tablet}) {
@@ -19,6 +22,7 @@ const Container = styled.section`
 const Title = styled.h1`
   font-size: 2rem;
   font-family: ${fontFamily.serif};
+  line-height: 1.2;
 `;
 
 const Picture = styled.img`
@@ -28,7 +32,17 @@ const Picture = styled.img`
 
 const Body = styled.p`
   margin-bottom: 1rem;
-  line-height: 1.4;
+  line-height: 1.6;
+
+  max-width: 80ch;
+
+  color: ${chroma(theme.offWhite).alpha(0.7)};
+
+  strong,
+  b {
+    color: ${theme.offWhite};
+    font-weight: bolder;
+  }
 `;
 
 const Link = styled(WouterLink)`

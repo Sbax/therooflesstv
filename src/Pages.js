@@ -56,8 +56,10 @@ const List = styled.ul`
     opacity: 0.5;
 
     border-left: 0.2em solid ${theme.offWhite};
-    padding: 0.5em 0;
+    padding: 0.33em 0;
     padding-left: 0.75em;
+
+    line-height: 1.3;
 
     > a {
       color: ${theme.offWhite};
@@ -114,9 +116,9 @@ const Pages = () => {
         .replace('./', '')
         .replace('.json', '');
 
-    return values.map((value, index) => ({
+    return values.map(({ slug, ...value }, index) => ({
       ...value,
-      slug: toKebabCase(keys[index]),
+      slug: slug || toKebabCase(keys[index]),
     }));
   })(require.context('./data/pages', true, /.*.json/));
 

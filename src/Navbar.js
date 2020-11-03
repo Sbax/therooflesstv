@@ -6,7 +6,8 @@ import { Link } from 'wouter';
 import { breakpoints, theme } from './theme/theme';
 
 const Container = styled.header`
-  background: ${theme.primary};
+  background: ${({ transparent }) =>
+    transparent ? 'transparent' : theme.primary};
   padding: 1.5rem 2rem;
 
   position: sticky;
@@ -44,9 +45,9 @@ const Navigation = styled.nav`
   }
 `;
 
-const Navbar = () => {
+const Navbar = ({ transparent }) => {
   return (
-    <Container>
+    <Container transparent={transparent}>
       <Content>
         <HomeIcon>
           <Link href="/">
