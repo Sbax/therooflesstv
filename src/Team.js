@@ -45,15 +45,7 @@ const Team = ({ team }) => {
     <Mons>
       {team.map((member) => {
         const mon = matchMon(member.number, mons);
-        const {
-          sprite,
-          generation,
-          number,
-          name,
-          types,
-          catchRate,
-          slug,
-        } = mon;
+        const { sprite, generation, name, slug } = mon;
         return (
           <Mon key={slug}>
             <Sprite src={sprite} />

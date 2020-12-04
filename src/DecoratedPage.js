@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Pokemon from './backgrounds/components/Pokemon';
-import { breakpoints, theme } from './theme/theme';
+import { breakpoints } from './theme/theme';
 
 const Container = styled.section`
   max-width: ${breakpoints.desktop};

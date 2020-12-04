@@ -28,7 +28,7 @@ const Generation = styled.span`
 `;
 
 const Mon = ({ mon }) => {
-  const { sprite, generation, name, types } = mon;
+  const { sprite, generation, name } = mon;
 
   return (
     <Container>
