@@ -53,6 +53,11 @@ const Button = styled.button`
   &:active {
     box-shadow: inset 0.25em 0.25em ${theme.grey};
   }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
 `;
 
 export default Button;

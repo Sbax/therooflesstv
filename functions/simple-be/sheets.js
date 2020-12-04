@@ -80,10 +80,12 @@ const getMons = () =>
               ...mons,
               {
                 sprite: sprite_url,
-                generation,
+                generation: parseInt(generation),
                 number: id_nb,
                 name,
-                types: [type_1, type_2].filter(Boolean),
+                types: [type_1, type_2]
+                  .filter(Boolean)
+                  .map((string) => string.toLowerCase()),
                 catchRate: parseInt(catch_rate_base255),
                 slug,
               },
