@@ -36,41 +36,17 @@ const toKebabCase = (string) =>
     .join('-');
 
 const getTrainers = () =>
-  getSheet('Trainers!A2:M')
+  getSheet('Query!A2:AE')
     .then(
       (response) =>
         (response || []).reduce(
-          (
-            { trainers },
-            [
-              name,
-              mon1number,
-              mon1name,
-              mon2number,
-              mon2name,
-              mon3number,
-              mon3name,
-              mon4number,
-              mon4name,
-              mon5number,
-              mon5name,
-              mon6number,
-              mon6name,
-            ]
-          ) => ({
+          ({ trainers }, [name, ...team]) => ({
             trainers: [
               ...trainers,
               {
                 name,
                 slug: toKebabCase(name),
-                team: [
-                  { number: mon1number, name: mon1name },
-                  { number: mon2number, name: mon2name },
-                  { number: mon3number, name: mon3name },
-                  { number: mon4number, name: mon4name },
-                  { number: mon5number, name: mon5name },
-                  { number: mon6number, name: mon6name },
-                ].filter(({ number }) => !!number),
+                team: team.filter((number) => !!number),
               },
             ],
           }),
@@ -89,7 +65,7 @@ const getMons = () =>
           (
             { mons },
             [
-              sprite,
+              _,
               sprite_url,
               generation,
               id_nb,

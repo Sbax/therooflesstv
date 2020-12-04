@@ -1,13 +1,19 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import Context from './context/store';
+import { v4 as uuidv4 } from 'uuid';
+import box from './sprites/box.png';
+import { breakpoints } from './theme/theme';
 
 const Mons = styled.section`
-  display: flex;
+  display: grid;
 
-  > * + * {
-    margin-left: 1.5rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+  @media only screen and (max-width: ${breakpoints.tablet}) {
+    grid-template-columns: 1fr 1fr;
   }
+
+  grid-gap: 1rem;
 `;
 
 const Mon = styled.article`
@@ -15,6 +21,7 @@ const Mon = styled.article`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1.2rem;
 `;
 
 const Sprite = styled.img`
@@ -34,27 +41,63 @@ const Generation = styled.span`
   opacity: 0.5;
 `;
 
-const matchMon = (number, mons) => mons.find((mon) => mon.number === number);
+const Box = styled.section`
+  margin-top: 0.5rem;
+  padding: 1.2rem;
+
+  > ${Mons} {
+    position: relative;
+
+    &:before {
+      border-radius: 2rem;
+      background-image: url(${box});
+
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.7;
+      z-index: -1;
+    }
+  }
+`;
 
 const Team = ({ team }) => {
-  const { state } = useContext(Context);
-
-  const { mons } = state;
-
   return (
-    <Mons>
-      {team.map((member) => {
-        const mon = matchMon(member.number, mons);
-        const { sprite, generation, name, slug } = mon;
-        return (
-          <Mon key={slug}>
-            <Sprite src={sprite} />
-            <Name>{name}</Name>
-            <Generation>Generazione {generation}</Generation>
-          </Mon>
-        );
-      })}
-    </Mons>
+    <>
+      <Mons>
+        {team.slice(0, 6).map((mon) => {
+          const { sprite, generation, name, slug } = mon;
+          return (
+            <Mon key={`${slug}-${uuidv4()}`}>
+              <Sprite src={sprite} />
+              <Name>{name}</Name>
+              <Generation>Generazione {generation}</Generation>
+            </Mon>
+          );
+        })}
+      </Mons>
+      {team.slice(6, team.length - 1).length ? (
+        <Box>
+          <Mons>
+            {team.slice(6, team.length - 1).map((mon) => {
+              const { sprite, generation, name, slug } = mon;
+              return (
+                <Mon key={`${slug}-${uuidv4()}`}>
+                  <Sprite src={sprite} />
+                  <Name>{name}</Name>
+                  <Generation>Generazione {generation}</Generation>
+                </Mon>
+              );
+            })}
+          </Mons>
+        </Box>
+      ) : (
+        <></>
+      )}
+    </>
   );
 };
 

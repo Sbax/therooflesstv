@@ -27,7 +27,6 @@ const Title = styled.h1`
 const Trainer = styled.div`
   padding: 1rem 0;
   line-height: 1.4;
-  max-width: 40rem;
 
   & + & {
     margin-top: 1rem;
@@ -47,7 +46,6 @@ const Trainers = () => {
       <Container>
         {(() => {
           if (!initialized || loading) return <Loader />;
-
           const { trainers } = state;
 
           return trainers.map(({ name, slug, team }) => (

@@ -15,8 +15,20 @@ export default () => {
   useEffect(() => {
     if (!initialized && !loading) {
       dispatch({ type: actions.initializeData });
-      Promise.all([fetchMons(), fetchTrainers()]).then(([mons, trainers]) =>
-        dispatch({ type: actions.gotData, payload: { mons, trainers } })
+      Promise.all([fetchMons(), fetchTrainers()]).then(
+        ([mons, trainersToMap]) => {
+          const trainers = trainersToMap.map(({ team, ...trainer }) => ({
+            ...trainer,
+            team: team.map((current) =>
+              mons.find(({ number }) => number === current)
+            ),
+          }));
+
+          return dispatch({
+            type: actions.gotData,
+            payload: { mons, trainers },
+          });
+        }
       );
     }
   }, [initialized, loading, dispatch]);
