@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { fontFamily, theme } from './theme/theme';
+import { v4 as uuidv4 } from 'uuid';
 
 const Label = styled.label`
-  margin-left: 1.5rem;
+  padding-left: 1.5rem;
 
   display: inline-flex;
   align-items: center;
@@ -46,12 +47,14 @@ const Input = styled.input`
 `;
 
 const Checkbox = ({ children, onChange, checked = false }) => {
+  const uuid = uuidv4();
   return (
-    <Label>
+    <Label htmlFor={uuid}>
       <Input
         type="checkbox"
         onChange={({ target }) => onChange(target.checked)}
         checked={checked}
+        id={uuid}
       />
       <Text>{children}</Text>
     </Label>
