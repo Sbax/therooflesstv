@@ -1,19 +1,22 @@
 export const colors = {
   russianViolet: '#6E4D81',
   jagger: '#50455b',
-  floralWhite: '#FCF8F0',
+  floralWhite: '#F2F3F6',
   greenSheen: '#6bA69D',
   orangeWeb: '#FCA311',
-  eerieBlack: '#191919',
+  eerieBlack: '#333333',
 
-  blackMarlin: '#37393F',
-  tomatoRed: '#e53935',
+  blackMarlin: '#adadad',
+  offRed: '#AC605D',
+  tomatoRed: '#DE5E57',
 
   hanBlue: '#46619d',
   sanJuan: '#435766',
 
   sanMarino: '#0D32AC',
   teak: '#B39165',
+
+  green: '#7fad71',
 };
 
 export const theme = {
@@ -21,14 +24,17 @@ export const theme = {
   offWhite: colors.floralWhite,
   grey: colors.blackMarlin,
 
-  primary: colors.hanBlue,
-  primaryDark: colors.sanJuan,
-  secondary: colors.greenSheen,
-  accent: colors.orangeWeb,
+  mainBg: colors.floralWhite,
+  text: colors.eerieBlack,
+
+  primary: colors.tomatoRed,
+  primaryDark: colors.offRed,
+  secondary: colors.green,
+  accent: colors.tomatoRed,
 };
 
 export const fontFamily = {
-  serif: "'Roboto Slab', serif",
+  serif: "'VT323', serif",
   sans: "'Open Sans', sans-serif",
 };
 

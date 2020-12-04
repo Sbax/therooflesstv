@@ -68,7 +68,7 @@ const Announcement = styled.section`
 const Home = () => {
   return (
     <>
-      <Navbar transparent={true} />
+      <Navbar />
       <DecoratedPage>
         <Center>
           <Title>The Roofless TV</Title>

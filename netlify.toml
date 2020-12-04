@@ -1,0 +1,8 @@
+[build]
+  command = "yarn run build"
+  functions = "functions"
+  publish = "build"
+
+[dev]
+  command = "yarn react:start"
+  port = 8888

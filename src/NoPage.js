@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { fontFamily } from './theme/theme';
 
 const Container = styled.section`
   height: 100%;
@@ -10,6 +11,8 @@ const Container = styled.section`
   align-items: center;
 
   opacity: 0.5;
+
+  font-family: ${fontFamily.serif};
 
   > * + * {
     margin-top: 2rem;
@@ -27,7 +30,7 @@ const Container = styled.section`
 const NoPage = () => {
   return (
     <Container>
-      <span class="face">(งಠ_ಠ)ง</span>
+      <span className="face">(งಠ_ಠ)ง</span>
       <span>Scegli una pagina</span>
     </Container>
   );

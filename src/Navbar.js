@@ -1,18 +1,23 @@
-import { faUserNinja } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ReactComponent as Logo } from './sprites/pokeball.svg';
+
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'wouter';
-import { breakpoints, theme } from './theme/theme';
+import { breakpoints, fontFamily, theme } from './theme/theme';
 
 const Container = styled.header`
   background: ${({ transparent }) =>
-    transparent ? 'transparent' : theme.primary};
+    transparent ? 'transparent' : theme.accent};
+
+  font-family: ${fontFamily.serif};
+  font-size: 1.2rem;
   padding: 1.5rem 2rem;
 
   position: sticky;
   top: 0;
   z-index: 1;
+
+  border-bottom: 0.25rem solid ${theme.offBlack};
 `;
 
 const Content = styled.section`
@@ -23,8 +28,7 @@ const Content = styled.section`
   align-items: center;
 
   a {
-    color: ${theme.offWhite};
-    font-weight: bold;
+    color: ${theme.mainBg};
   }
 `;
 
@@ -33,6 +37,8 @@ const HomeIcon = styled.span`
   cursor: pointer;
 
   transition: opacity 300ms ease-in-out;
+
+  color: ${theme.mainBg};
 
   &:hover {
     opacity: 0.75;
@@ -51,13 +57,13 @@ const Navbar = ({ transparent }) => {
       <Content>
         <HomeIcon>
           <Link href="/">
-            <FontAwesomeIcon icon={faUserNinja} />
+            <Logo />
           </Link>
         </HomeIcon>
 
         <Navigation>
           <Link href="/pages">Leggi la storia</Link>
-          <Link href="/subjects">Lezioni</Link>
+          <Link href="/trainers">Allenatori</Link>
           <Link href="/about">About</Link>
         </Navigation>
       </Content>

@@ -36,11 +36,11 @@ const Body = styled.p`
 
   max-width: 80ch;
 
-  color: ${chroma(theme.offWhite).alpha(0.7)};
+  color: ${chroma(theme.text).alpha(0.9)};
 
   strong,
   b {
-    color: ${theme.offWhite};
+    color: ${theme.text};
     font-weight: bolder;
   }
 `;

@@ -1,15 +1,15 @@
-import { faUserNinja } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import styled from 'styled-components';
 import { Link, useRoute } from 'wouter';
 import NoPage from './NoPage';
 import NotFound from './NotFound';
 import Page from './Page';
+import { ReactComponent as Logo } from './sprites/pokeball.svg';
 import { breakpoints, fontFamily, theme } from './theme/theme';
 
 const Sidebar = styled.aside`
   background: ${theme.primary};
+  color: ${theme.offWhite};
   padding: 0 3rem;
 `;
 
@@ -21,8 +21,6 @@ const HomeIcon = styled.span`
   font-size: 2rem;
   padding: 1.5rem 0;
 
-  font-family: ${fontFamily.serif};
-
   cursor: pointer;
 
   transition: opacity 300ms ease-in-out;
@@ -30,7 +28,9 @@ const HomeIcon = styled.span`
   > span {
     line-height: 0.68;
     margin-left: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
+
+    font-family: ${fontFamily.serif};
   }
 
   &:hover {
@@ -40,7 +40,6 @@ const HomeIcon = styled.span`
 
 const Title = styled.h1`
   font-size: 1.5rem;
-  font-weight: bold;
   font-family: ${fontFamily.serif};
   margin-bottom: 1rem;
 `;
@@ -73,7 +72,8 @@ const List = styled.ul`
 `;
 
 const Content = styled.section`
-  background: ${theme.grey};
+  background: ${theme.mainBg};
+  color: ${theme.text};
 `;
 
 const Container = styled.main`
@@ -130,20 +130,20 @@ const Pages = () => {
   }
 
   return (
-    <Container className={match && 'matches'}>
+    <Container className={match ? 'matches' : ''}>
       <Sidebar>
         <Link href="/">
           <HomeIcon>
-            <FontAwesomeIcon icon={faUserNinja} />
+            <Logo />
             <span>TheRooflessTV</span>
           </HomeIcon>
         </Link>
-        <Title>Pagine</Title>
+        <Title>Universi</Title>
         <List>
           {pages.map(({ slug, title }) => (
             <li
               key={slug}
-              className={match && params.slug === slug && 'active'}
+              className={match && params.slug === slug ? 'active' : ''}
             >
               <Link href={`/pages/${slug}`}>{title}</Link>
             </li>

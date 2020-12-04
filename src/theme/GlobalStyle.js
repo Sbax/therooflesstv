@@ -12,8 +12,8 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: ${fontFamily.sans}, serif;
-    color: ${theme.offWhite};
-    background: ${theme.grey}
+    color: ${theme.text};
+    background: ${theme.mainBg};
   }
 
   *, *:before, *:after {
