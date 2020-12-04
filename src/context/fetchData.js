@@ -3,6 +3,7 @@ import { actions } from './actions';
 import Context from './store';
 
 const key = 'therooflesstv-pokemon';
+const expirationKey = `${key}:expiration`;
 const trainersKey = `${key}:trainers`;
 const monsKey = `${key}:mons`;
 
@@ -14,7 +15,6 @@ const fetchTrainers = async () => {
     await fetch(`/.netlify/functions/simple-be/trainers`)
   ).json();
 
-  sessionStorage.setItem(trainersKey, JSON.stringify(trainers));
   return trainers;
 };
 
@@ -23,8 +23,6 @@ const fetchMons = async () => {
   if (saved) return JSON.parse(saved);
 
   const mons = await (await fetch(`/.netlify/functions/simple-be/mons`)).json();
-
-  sessionStorage.setItem(monsKey, JSON.stringify(mons));
   return mons;
 };
 
@@ -35,6 +33,29 @@ export default () => {
   useEffect(() => {
     if (!initialized && !loading) {
       dispatch({ type: actions.initializeData });
+
+      const saved = sessionStorage.getItem(expirationKey);
+      if (saved) {
+        const { expiresAt } = JSON.parse(saved);
+
+        if (Date.parse(new Date()) > Date.parse(expiresAt)) {
+          sessionStorage.clear();
+        }
+      }
+
+      const savedMons = sessionStorage.getItem(monsKey);
+      const savedTrainers = sessionStorage.getItem(trainersKey);
+
+      if (savedMons && savedTrainers) {
+        const mons = JSON.parse(saved);
+        const trainers = JSON.parse(saved);
+
+        return dispatch({
+          type: actions.gotData,
+          payload: { mons, trainers },
+        });
+      }
+
       Promise.all([fetchMons(), fetchTrainers()]).then(
         ([mons, trainersToMap]) => {
           const trainers = trainersToMap.map(({ team, ...trainer }) => ({
@@ -43,6 +64,16 @@ export default () => {
               mons.find(({ number }) => number === current)
             ),
           }));
+
+          sessionStorage.setItem(
+            expirationKey,
+            JSON.stringify({
+              expiresAt: new Date(new Date().getTime() + 5 * 1 * 10e3),
+            })
+          );
+
+          sessionStorage.setItem(monsKey, JSON.stringify(mons));
+          sessionStorage.setItem(trainersKey, JSON.stringify(trainers));
 
           return dispatch({
             type: actions.gotData,
