@@ -48,10 +48,10 @@ const Team = ({ team }) => {
           <Mon key={`${mon.slug}-${uuidv4()}`} mon={mon} />
         ))}
       </Mons>
-      {team.slice(6, team.length - 1).length ? (
+      {team.slice(6, team.length).length ? (
         <Box>
           <Mons>
-            {team.slice(6, team.length - 1).map((mon) => (
+            {team.slice(6, team.length).map((mon) => (
               <Mon key={`${mon.slug}-${uuidv4()}`} mon={mon} />
             ))}
           </Mons>
