@@ -9,10 +9,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import chroma from 'chroma-js';
 import React from 'react';
 import styled from 'styled-components';
-import { announcement, showAnnouncement } from './data/home.json';
-import DecoratedPage from './DecoratedPage';
-import Navbar from './Navbar';
-import { breakpoints, colors, fontFamily } from './theme/theme';
+import DecoratedPage from '../components/DecoratedPage';
+import Navbar from '../components/Navbar';
+import { announcement, showAnnouncement } from '../data/home.json';
+import { breakpoints, colors, fontFamily } from '../theme/theme';
 
 const Center = styled.section`
   display: flex;

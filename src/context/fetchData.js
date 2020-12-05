@@ -26,6 +26,39 @@ const fetchMons = async () => {
   return mons;
 };
 
+const checkSavedData = () => {
+  const saved = sessionStorage.getItem(expirationKey);
+  if (saved) {
+    const { expiresAt } = JSON.parse(saved);
+
+    if (Date.parse(new Date()) > Date.parse(expiresAt)) {
+      sessionStorage.clear();
+    }
+  }
+
+  const savedMons = sessionStorage.getItem(monsKey);
+  const savedTrainers = sessionStorage.getItem(trainersKey);
+
+  if (savedMons && savedTrainers) {
+    const mons = JSON.parse(savedMons);
+    const trainers = JSON.parse(savedTrainers);
+
+    return { mons, trainers };
+  }
+};
+
+const saveData = (mons, trainers) => {
+  sessionStorage.setItem(
+    expirationKey,
+    JSON.stringify({
+      expiresAt: new Date(new Date().getTime() + 5 * 1 * 10e3),
+    })
+  );
+
+  sessionStorage.setItem(monsKey, JSON.stringify(mons));
+  sessionStorage.setItem(trainersKey, JSON.stringify(trainers));
+};
+
 export default () => {
   const { state, dispatch } = useContext(Context);
   const { initialized, loading } = state;
@@ -34,25 +67,11 @@ export default () => {
     if (!initialized && !loading) {
       dispatch({ type: actions.initializeData });
 
-      const saved = sessionStorage.getItem(expirationKey);
+      const saved = checkSavedData();
       if (saved) {
-        const { expiresAt } = JSON.parse(saved);
-
-        if (Date.parse(new Date()) > Date.parse(expiresAt)) {
-          sessionStorage.clear();
-        }
-      }
-
-      const savedMons = sessionStorage.getItem(monsKey);
-      const savedTrainers = sessionStorage.getItem(trainersKey);
-
-      if (savedMons && savedTrainers) {
-        const mons = JSON.parse(savedMons);
-        const trainers = JSON.parse(savedTrainers);
-
         return dispatch({
           type: actions.gotData,
-          payload: { mons, trainers },
+          payload: { mons: saved.mons, trainers: saved.trainers },
         });
       }
 
@@ -65,15 +84,7 @@ export default () => {
             ),
           }));
 
-          sessionStorage.setItem(
-            expirationKey,
-            JSON.stringify({
-              expiresAt: new Date(new Date().getTime() + 5 * 1 * 10e3),
-            })
-          );
-
-          sessionStorage.setItem(monsKey, JSON.stringify(mons));
-          sessionStorage.setItem(trainersKey, JSON.stringify(trainers));
+          saveData(mons, trainers);
 
           return dispatch({
             type: actions.gotData,

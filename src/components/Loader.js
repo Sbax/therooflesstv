@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import great from './sprites/great.png';
-import master from './sprites/master.png';
-import poke from './sprites/poke.png';
-import ultra from './sprites/ultra.png';
+import great from '../sprites/great.png';
+import master from '../sprites/master.png';
+import poke from '../sprites/poke.png';
+import ultra from '../sprites/ultra.png';
 
 const Container = styled.div`
   position: relative;

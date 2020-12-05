@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { fontFamily } from './theme/theme';
+import { fontFamily } from '../theme/theme';
 
 const Container = styled.section`
   height: 100%;

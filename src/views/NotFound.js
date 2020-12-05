@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'wouter';
-import DecoratedPage from './DecoratedPage';
-import Navbar from './Navbar';
+import DecoratedPage from '../components/DecoratedPage';
+import Navbar from '../components/Navbar';
 
 const Center = styled.section`
   display: flex;

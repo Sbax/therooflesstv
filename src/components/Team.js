@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import Mon from './Mon';
-import box from './sprites/box.png';
-import { breakpoints } from './theme/theme';
+import box from '../sprites/box.png';
+import { breakpoints } from '../theme/theme';
 
 const Mons = styled.section`
   display: grid;

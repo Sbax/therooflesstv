@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import fetchData from './context/fetchData';
-import Context from './context/store';
-import Loader from './Loader';
-import Navbar from './Navbar';
-import Team from './Team';
-import { breakpoints, fontFamily } from './theme/theme';
+import fetchData from '../context/fetchData';
+import Context from '../context/store';
+import Loader from '../components/Loader';
+import Navbar from '../components/Navbar';
+import Team from '../components/Team';
+import { breakpoints, fontFamily } from '../theme/theme';
 
 const Container = styled.main`
   max-width: ${breakpoints.desktop};

@@ -1,15 +1,19 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useLocation, useRoute } from 'wouter';
-import Button from './Button';
-import CatchBox from './CatchBox';
-import fetchData from './context/fetchData';
-import Context from './context/store';
-import Filters from './Filters';
-import Loader from './Loader';
-import Mon from './Mon';
-import Navbar from './Navbar';
-import { breakpoints } from './theme/theme';
+import Button from '../components/Button';
+import CatchBox from '../components/CatchBox';
+import Filters from '../components/Filters';
+import Loader from '../components/Loader';
+import Mon from '../components/Mon';
+import Navbar from '../components/Navbar';
+import fetchData from '../context/fetchData';
+import Context from '../context/store';
+import { randomMon } from '../monLogic';
+import { breakpoints } from '../theme/theme';
+
+const key = 'therooflesstv-pokemon';
+const settingsKey = `${key}:settings`;
 
 const Container = styled.main`
   max-width: ${breakpoints.desktop};
@@ -27,40 +31,57 @@ const Container = styled.main`
   align-items: center;
 `;
 
+const allTypes = [
+  'rock',
+  'ground',
+  'fighting',
+  'grass',
+  'bug',
+  'flying',
+  'water',
+  'ice',
+  'poison',
+  'dark',
+  'ghost',
+  'electric',
+  'normal',
+  'steel',
+  'fire',
+  'dragon',
+  'psychic',
+  'fairy',
+];
+
+const allGenerations = [1, 2, 3, 4, 5, 6, 7, 8];
+
+const getSettings = () => {
+  const settings = localStorage.getItem(settingsKey);
+  if (!settings) return { generations: allGenerations, types: allTypes };
+
+  return JSON.parse(settings);
+};
+
 const Catch = () => {
+  fetchData();
+
+  const settings = getSettings();
+
   const { state } = useContext(Context);
   const { initialized, loading } = state;
-
   const { mons } = state;
 
   const [match, params] = useRoute('/catch/:slug?');
-  const [_, setLocation] = useLocation();
 
-  fetchData();
-
+  // eslint-disable-next-line no-unused-vars
+  const [location, setLocation] = useLocation();
   const mon = match && mons && mons.find(({ slug }) => slug === params.slug);
 
-  const [generations, setGenerations] = useState([1, 2, 3]);
-  const [types, setTypes] = useState([
-    'rock',
-    'ground',
-    'fighting',
-    'grass',
-    'bug',
-    'flying',
-    'water',
-    'ice',
-    'poison',
-    'dark',
-    'ghost',
-    'electric',
-    'normal',
-    'steel',
-    'fire',
-    'dragon',
-    'psychic',
-    'fairy',
-  ]);
+  const [generations, setGenerations] = useState(settings.generations);
+  const [types, setTypes] = useState(settings.types);
+
+  useEffect(() => {
+    localStorage.setItem(settingsKey, JSON.stringify({ generations, types }));
+  }, [generations, types]);
 
   const getRandom = () => {
     const filtered = mons
@@ -69,9 +90,7 @@ const Catch = () => {
         (item) => types.includes(item.types[0]) || types.includes(item.types[1])
       );
 
-    setLocation(
-      `/catch/${filtered[Math.floor(Math.random() * filtered.length)].slug}`
-    );
+    setLocation(`/catch/${randomMon(filtered).slug}`);
   };
 
   return (

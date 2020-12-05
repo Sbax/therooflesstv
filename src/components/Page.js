@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import { Link as WouterLink } from 'wouter';
-import { breakpoints, fontFamily, theme } from './theme/theme';
+import { breakpoints, fontFamily, theme } from '../theme/theme';
 
 const Container = styled.section`
   max-height: 100vh;

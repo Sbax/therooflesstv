@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link, useRoute } from 'wouter';
-import NoPage from './NoPage';
+import NoPage from '../components/NoPage';
 import NotFound from './NotFound';
-import Page from './Page';
-import { ReactComponent as Logo } from './sprites/pokeball.svg';
-import { breakpoints, fontFamily, theme } from './theme/theme';
+import Page from '../components/Page';
+import { ReactComponent as Logo } from '../sprites/pokeball.svg';
+import { breakpoints, fontFamily, theme } from '../theme/theme';
 
 const Sidebar = styled.aside`
   background: ${theme.primary};
@@ -120,7 +120,7 @@ const Pages = () => {
       ...value,
       slug: slug || toKebabCase(keys[index]),
     }));
-  })(require.context('./data/pages', true, /.*.json/));
+  })(require.context('../data/pages', true, /.*.json/));
 
   const [match, params] = useRoute('/pages/:slug');
 

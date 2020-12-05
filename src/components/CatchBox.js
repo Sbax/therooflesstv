@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { catchMon } from '../monLogic';
+import great from '../sprites/great.png';
+import master from '../sprites/master.png';
+import poke from '../sprites/poke.png';
+import ultra from '../sprites/ultra.png';
 import Balloon from './Balloon';
-import great from './sprites/great.png';
-import master from './sprites/master.png';
-import poke from './sprites/poke.png';
-import ultra from './sprites/ultra.png';
 
 const Container = styled.section`
   display: flex;
@@ -32,9 +33,6 @@ const Balls = styled.section`
   }
 `;
 
-const randomNumber = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1) + min);
-
 const CatchBox = ({ name, catchRate }) => {
   const [attempting, setAttempting] = useState(false);
   const [caught, setCaught] = useState();
@@ -44,33 +42,9 @@ const CatchBox = ({ name, catchRate }) => {
     setCaught();
   }, [name]);
 
-  const catchMon = (ballModifier) => {
-    if (ballModifier === 0) return true;
-
-    const M = 100;
-    const H = 25;
-
-    const X = ((3 * M - 2 * H) * catchRate * ballModifier) / (3 * M);
-
-    if (X > 255) return true;
-
-    const Y = 65536 / Math.sqrt(Math.sqrt(255 / X));
-
-    const firstAttempt = randomNumber(0, 65535);
-    if (firstAttempt > Y) return false;
-
-    const secondAttempt = randomNumber(0, 65535);
-    if (secondAttempt > Y) return false;
-
-    const thirdAttempt = randomNumber(0, 65535);
-    if (thirdAttempt > Y) return false;
-
-    return true;
-  };
-
-  const tryCatch = (...params) => {
+  const tryCatch = (ballModifier) => {
     setTimeout(() => {
-      setCaught(catchMon(...params));
+      setCaught(catchMon(ballModifier, catchRate));
       setAttempting(false);
     }, 2000);
 

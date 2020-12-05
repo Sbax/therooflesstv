@@ -74,6 +74,7 @@ const getMons = () =>
               type_2,
               slug,
               catch_rate_base255,
+              is_legendary,
             ]
           ) => ({
             mons: [
@@ -88,6 +89,7 @@ const getMons = () =>
                   .map((string) => string.toLowerCase()),
                 catchRate: parseInt(catch_rate_base255),
                 slug,
+                legendary: is_legendary === 'TRUE',
               },
             ],
           }),

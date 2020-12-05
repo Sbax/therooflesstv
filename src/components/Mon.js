@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { fontFamily } from './theme/theme';
+import { fontFamily } from '../theme/theme';
 import Type from './Type';
 
 const Container = styled.article`

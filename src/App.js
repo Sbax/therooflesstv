@@ -1,14 +1,14 @@
 import React, { useContext, useReducer } from 'react';
 import { Route, Switch } from 'wouter';
-import About from './About';
-import Catch from './Catch';
+import About from './views/About';
+import Catch from './views/Catch';
 import reducer from './context/reducer';
 import Context from './context/store';
-import Home from './Home';
-import NotFound from './NotFound';
-import Pages from './Pages';
+import Home from './views/Home';
+import NotFound from './views/NotFound';
+import Pages from './views/Pages';
 import GlobalStyle from './theme/GlobalStyle';
-import Trainers from './Trainers';
+import Trainers from './views/Trainers';
 
 function App() {
   const initialState = useContext(Context);

@@ -1,9 +1,9 @@
-import { ReactComponent as Logo } from './sprites/pokeball.svg';
+import { ReactComponent as Logo } from '../sprites/pokeball.svg';
 
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'wouter';
-import { breakpoints, fontFamily, theme } from './theme/theme';
+import { breakpoints, fontFamily, theme } from '../theme/theme';
 
 const Container = styled.header`
   background: ${({ transparent }) =>

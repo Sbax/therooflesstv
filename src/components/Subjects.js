@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Navbar from './Navbar';
-import { breakpoints, fontFamily, theme } from './theme/theme';
+import { breakpoints, fontFamily, theme } from '../theme/theme';
 
 const Container = styled.main`
   max-width: ${breakpoints.desktop};
