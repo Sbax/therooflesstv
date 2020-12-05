@@ -127,7 +127,7 @@ const Filters = ({
           {hasType(areasToTypes.temple) && <span>Tempio</span>}
         </section>
         <section>
-          <span>Generazione {generations.join(', ')}</span>
+          <span>Generazione {generations.sort().join(', ')}</span>
         </section>
       </Collapsed>
       <Expansion onClick={() => setExpanded(!expanded)}>
