@@ -47,8 +47,8 @@ export default () => {
       const savedTrainers = sessionStorage.getItem(trainersKey);
 
       if (savedMons && savedTrainers) {
-        const mons = JSON.parse(saved);
-        const trainers = JSON.parse(saved);
+        const mons = JSON.parse(savedMons);
+        const trainers = JSON.parse(savedTrainers);
 
         return dispatch({
           type: actions.gotData,
