@@ -7,8 +7,6 @@ import poke from './sprites/poke.png';
 import ultra from './sprites/ultra.png';
 
 const Container = styled.section`
-  margin-top: 2rem;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,11 +77,6 @@ const CatchBox = ({ name, catchRate }) => {
     setAttempting(true);
     setCaught(null);
   };
-
-  if (attempting) {
-    if (caught === true) return 'Preso!';
-    if (caught === false) return 'Oh no è uscito!';
-  }
 
   return (
     <Container>

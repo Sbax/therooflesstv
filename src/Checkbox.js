@@ -8,10 +8,11 @@ const Label = styled.label`
 
   display: inline-flex;
   align-items: center;
+
+  cursor: pointer;
 `;
 
 const Text = styled.span`
-  cursor: pointer;
   position: relative;
 
   font-family: ${fontFamily.serif};

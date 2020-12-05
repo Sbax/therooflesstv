@@ -20,6 +20,11 @@ const Container = styled.header`
   border-bottom: 0.25rem solid ${theme.offBlack};
 `;
 
+const LeftSection = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const Content = styled.section`
   max-width: ${breakpoints.desktop};
   margin: auto;
@@ -35,14 +40,19 @@ const Content = styled.section`
 const HomeIcon = styled.span`
   font-size: 2rem;
   cursor: pointer;
-
   transition: opacity 300ms ease-in-out;
-
   color: ${theme.mainBg};
+  display: flex;
+  align-items: center;
 
   &:hover {
     opacity: 0.75;
   }
+`;
+
+const Extra = styled.span`
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
 `;
 
 const Navigation = styled.nav`
@@ -55,11 +65,19 @@ const Navbar = ({ transparent }) => {
   return (
     <Container transparent={transparent}>
       <Content>
-        <HomeIcon>
-          <Link href="/">
-            <Logo />
-          </Link>
-        </HomeIcon>
+        <LeftSection>
+          <HomeIcon>
+            <Link href="/">
+              <Logo />
+            </Link>
+          </HomeIcon>
+
+          <Extra>
+            <Link className="extra" href="/catch">
+              Catch!
+            </Link>
+          </Extra>
+        </LeftSection>
 
         <Navigation>
           <Link href="/pages">Leggi la storia</Link>

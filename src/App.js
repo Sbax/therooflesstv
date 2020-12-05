@@ -21,7 +21,7 @@ function App() {
         <Route path="/" component={Home} />
         <Route path="/pages/:slug?" component={Pages} />
         <Route path="/trainers" component={Trainers} />
-        <Route path="/catch" component={Catch} />
+        <Route path="/catch/:slug?" component={Catch} />
         <Route path="/about" component={About} />
 
         <Route>
