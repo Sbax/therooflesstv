@@ -58,7 +58,7 @@ const getTrainers = () =>
     .catch((error) => error);
 
 const getMons = () =>
-  getSheet('Database!A2:K')
+  getSheet('Database!A2:L')
     .then(
       (response) =>
         (response || []).reduce(
@@ -75,6 +75,8 @@ const getMons = () =>
               slug,
               catch_rate_base255,
               is_legendary,
+              cry,
+              dex,
             ]
           ) => ({
             mons: [
@@ -90,6 +92,8 @@ const getMons = () =>
                 catchRate: parseInt(catch_rate_base255),
                 slug,
                 legendary: is_legendary === 'TRUE',
+                cry,
+                dex,
               },
             ],
           }),

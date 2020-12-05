@@ -11,6 +11,8 @@ import fetchData from '../context/fetchData';
 import Context from '../context/store';
 import { randomMon } from '../monLogic';
 import { breakpoints } from '../theme/theme';
+import pokedex from '../sprites/pokedex.png';
+import Cry from '../components/Cry';
 
 const key = 'therooflesstv-pokemon';
 const settingsKey = `${key}:settings`;
@@ -29,6 +31,21 @@ const Container = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+const Dex = styled.img`
+  width: 2.5rem;
+`;
+
+const Info = styled.div`
+  margin-top: 0.5rem;
+
+  display: flex;
+  align-items: center;
+
+  > * + * {
+    margin-left: 0.5rem;
+  }
 `;
 
 const allTypes = [
@@ -120,6 +137,14 @@ const Catch = () => {
                 <>
                   <CatchBox {...mon} />
                   <Mon mon={mon} />
+
+                  <Info>
+                    <a href={mon.dex} target="_blank" rel="noopener noreferrer">
+                      <Dex src={pokedex} alt="Pokedex icon" />
+                    </a>
+
+                    {mon.cry && <Cry file={mon.cry} />}
+                  </Info>
                 </>
               )}
             </>
