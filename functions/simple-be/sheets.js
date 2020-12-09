@@ -58,7 +58,7 @@ const getTrainers = () =>
     .catch((error) => error);
 
 const getMons = () =>
-  getSheet('Database!A2:L')
+  getSheet('Database!A2:M')
     .then(
       (response) =>
         (response || []).reduce(
@@ -77,6 +77,7 @@ const getMons = () =>
               is_legendary,
               cry,
               dex,
+              rarity,
             ]
           ) => ({
             mons: [
@@ -94,6 +95,7 @@ const getMons = () =>
                 legendary: is_legendary === 'TRUE',
                 cry,
                 dex,
+                rarity: parseInt(rarity),
               },
             ],
           }),

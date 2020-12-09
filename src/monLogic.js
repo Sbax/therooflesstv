@@ -4,6 +4,8 @@ const randomNumber = (min = 0, max = 255) =>
 const randomFromArray = (array) =>
   array[Math.floor(Math.random() * array.length)];
 
+const sumUpTo = (n) => (n * (n + 1)) / 2;
+
 export const catchMon = (ballModifier, catchRate) => {
   if (ballModifier === 0) return true;
 
@@ -29,10 +31,19 @@ export const catchMon = (ballModifier, catchRate) => {
 };
 
 export const randomMon = (list) => {
+  const maxRarity = sumUpTo(10);
+  const rarityIndex = randomNumber(0, maxRarity);
+
+  const filteredByRarity = list.filter(
+    ({ rarity }) => rarityIndex >= sumUpTo(rarity)
+  );
+
   const legendaryRandom = randomNumber(0, 100);
   if (legendaryRandom > 5) {
-    return randomFromArray(list.filter(({ legendary }) => !legendary));
+    return randomFromArray(
+      filteredByRarity.filter(({ legendary }) => !legendary)
+    );
   }
 
-  return randomFromArray(list);
+  return randomFromArray(filteredByRarity);
 };
