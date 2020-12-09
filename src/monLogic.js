@@ -29,5 +29,10 @@ export const catchMon = (ballModifier, catchRate) => {
 };
 
 export const randomMon = (list) => {
+  const legendaryRandom = randomNumber(0, 100);
+  if (legendaryRandom > 5) {
+    return randomFromArray(list.filter(({ legendary }) => !legendary));
+  }
+
   return randomFromArray(list);
 };
