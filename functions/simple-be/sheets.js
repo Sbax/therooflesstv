@@ -36,7 +36,7 @@ const toKebabCase = (string) =>
     .join('-');
 
 const getTrainers = () =>
-  getSheet('Query!A2:AE')
+  getSheet('Query!A2:IW')
     .then(
       (response) =>
         (response || []).reduce(
