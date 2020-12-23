@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import missingno from '../sprites/missingno.png';
 import { fontFamily } from '../theme/theme';
 import Type from './Type';
 
@@ -18,7 +19,8 @@ const Container = styled.article`
 
 const Sprite = styled.img`
   min-height: 6em;
-  width: 6em;
+  max-height: 6em;
+  width: auto;
   height: auto;
 `;
 
@@ -45,11 +47,11 @@ const Mon = ({ mon }) => {
 
   return (
     <Container>
-      <Sprite src={sprite} />
+      <Sprite src={sprite || missingno} />
       <Name>{name}</Name>
 
       <Types>
-        {types.map((type) => (
+        {(types || []).map((type) => (
           <Type type={type} key={type} />
         ))}
       </Types>

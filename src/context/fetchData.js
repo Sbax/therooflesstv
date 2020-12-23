@@ -26,6 +26,19 @@ const fetchMons = async () => {
   return mons;
 };
 
+const matchMon = (name, mons) => {
+  const found = mons.find((mon) => mon.name === name);
+
+  if (found) return found;
+
+  return {
+    generation: '???',
+    number: '???',
+    name,
+    slug: name,
+  };
+};
+
 const checkSavedData = () => {
   const saved = sessionStorage.getItem(expirationKey);
   if (saved) {
@@ -79,9 +92,7 @@ export default () => {
         ([mons, trainersToMap]) => {
           const trainers = trainersToMap.map(({ team, ...trainer }) => ({
             ...trainer,
-            team: team.map((current) =>
-              mons.find(({ number }) => number === current)
-            ),
+            team: team.map((current) => matchMon(current, mons)),
           }));
 
           saveData(mons, trainers);

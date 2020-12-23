@@ -36,7 +36,7 @@ const toKebabCase = (string) =>
     .join('-');
 
 const getTrainers = () =>
-  getSheet('Query!A2:IW')
+  getSheet('Trainers!A2:IW')
     .then(
       (response) =>
         (response || []).reduce(
@@ -46,7 +46,7 @@ const getTrainers = () =>
               {
                 name,
                 slug: toKebabCase(name),
-                team: team.filter((number) => !!number),
+                team: team.filter((name) => !!name),
               },
             ],
           }),
