@@ -102,6 +102,7 @@ const Catch = () => {
 
   const getRandom = () => {
     const filtered = mons
+      .filter(({ rarity }) => !!rarity)
       .filter(({ generation }) => generations.includes(generation))
       .filter(
         (item) => types.includes(item.types[0]) || types.includes(item.types[1])
