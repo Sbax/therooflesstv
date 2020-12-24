@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import Mon from './Mon';
 import box from '../sprites/box.png';
+import storage from '../sprites/storage.png';
 import { breakpoints } from '../theme/theme';
 
 const Mons = styled.section`
@@ -40,7 +41,16 @@ const Box = styled.section`
   }
 `;
 
+const Toggle = styled.div`
+  cursor: pointer;
+  margin: 1rem 0;
+`;
+
 const Team = ({ team }) => {
+  const [show, setShown] = useState(false);
+
+  const toggle = () => setShown(!show);
+
   return (
     <>
       <Mons>
@@ -48,7 +58,12 @@ const Team = ({ team }) => {
           <Mon key={`${mon.slug}-${uuidv4()}`} mon={mon} />
         ))}
       </Mons>
-      {team.slice(6, team.length).length ? (
+      {team.length > 6 && (
+        <Toggle onClick={toggle}>
+          <img src={storage} alt="storage" />
+        </Toggle>
+      )}
+      {show && team.length > 6 ? (
         <Box>
           <Mons>
             {team.slice(6, team.length).map((mon) => (
