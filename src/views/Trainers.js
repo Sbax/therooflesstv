@@ -48,9 +48,11 @@ const Trainers = () => {
           if (!initialized || loading) return <Loader />;
           const { trainers } = state;
 
-          return trainers.map(({ name, slug, team }) => (
+          return trainers.map(({ number, name, slug, team }) => (
             <Trainer key={slug}>
-              <Title>{name}</Title>
+              <Title>
+                {number} {name}
+              </Title>
               <Team team={team} />
             </Trainer>
           ));
