@@ -2,13 +2,13 @@ import { actions } from './actions';
 
 export default (state, { type, payload }) => {
   switch (type) {
-    case actions.initializeData:
+    case actions.initializeMons:
       return {
         ...state,
         loading: true,
       };
 
-    case actions.gotData:
+    case actions.gotMons:
       const { mons, trainers } = payload;
 
       return {
@@ -16,7 +16,24 @@ export default (state, { type, payload }) => {
         mons,
         trainers,
         loading: false,
-        initialized: true,
+        initializedMons: true,
+      };
+
+    case actions.initializeEnnara:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case actions.gotEnnara:
+      const { players, rewards } = payload;
+
+      return {
+        ...state,
+        players,
+        rewards,
+        loading: false,
+        initializedEnnara: true,
       };
 
     default:

@@ -1,4 +1,6 @@
 export const actions = {
-  initializeData: 'INIT_DATA',
-  gotData: 'GOT_DATA',
+  initializeMons: 'INIT_MONS',
+  gotMons: 'GOT_MONS',
+  initializeEnnara: 'INIT_ENNARA',
+  gotEnnara: 'GOT_ENNARA',
 };

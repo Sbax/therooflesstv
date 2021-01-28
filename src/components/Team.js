@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
-import Mon from './Mon';
 import box from '../sprites/box.png';
 import storage from '../sprites/storage.png';
 import { breakpoints } from '../theme/theme';
+import Mon from './mons/Mon';
 
 const Mons = styled.section`
   display: grid;

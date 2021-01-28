@@ -1,5 +1,5 @@
 const { default: styled } = require('styled-components');
-const { fontFamily } = require('../theme/theme');
+const { fontFamily } = require('../../theme/theme');
 
 const Balloon = styled.div`
   font-family: ${fontFamily.serif};

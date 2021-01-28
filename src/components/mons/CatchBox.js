@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { catchMon } from '../monLogic';
+import { catchMon } from '../../logic/mon';
+import Balloon from '../retro/Balloon';
 import great from '../sprites/great.png';
 import master from '../sprites/master.png';
 import poke from '../sprites/poke.png';
 import ultra from '../sprites/ultra.png';
-import Balloon from './Balloon';
 
 const Container = styled.section`
   display: flex;

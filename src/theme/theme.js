@@ -17,6 +17,8 @@ export const colors = {
   teak: '#B39165',
 
   green: '#7fad71',
+
+  forgetMeNot: '#FDEFDF',
 };
 
 export const theme = {
@@ -24,17 +26,22 @@ export const theme = {
   offWhite: colors.floralWhite,
   grey: colors.blackMarlin,
 
-  mainBg: colors.floralWhite,
+  mainBg: colors.forgetMeNot,
   text: colors.eerieBlack,
 
-  primary: colors.tomatoRed,
+  primary: colors.offRed,
   primaryDark: colors.offRed,
   secondary: colors.green,
-  accent: colors.tomatoRed,
+  accent: colors.offRed,
+
+  legendary: '#734188',
+  ultrarare: '#74A158',
+  rare: '#35548A',
+  common: '#A8816A',
 };
 
 export const fontFamily = {
-  serif: "'VT323', serif",
+  serif: "'Merriweather', sans-serif",
   sans: "'Open Sans', sans-serif",
 };
 

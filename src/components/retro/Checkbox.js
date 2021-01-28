@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { fontFamily, theme } from './theme/theme';
 import { v4 as uuidv4 } from 'uuid';
+import { fontFamily, theme } from '../../theme/theme';
 
 const Label = styled.label`
   padding-left: 1.5rem;

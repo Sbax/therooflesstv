@@ -4,35 +4,21 @@ const serverless = require('serverless-http');
 const app = express();
 const bodyParser = require('body-parser');
 
-const sheets = require('./sheets');
-const { getMons, getTrainers } = sheets;
+const { addRoute } = require('./utils');
+
 const router = express.Router();
 
-router.get('/mons', async (_, res) => {
-  const items = await getMons();
+const mon = require('./mon');
+const { getMons, getTrainers } = mon;
 
-  if (items.error) {
-    res.status(500);
-    res.json({ error: items.error });
+const ennara = require('./ennara');
+const { getPlayers, getRewards } = ennara;
 
-    return;
-  }
+addRoute(router, '/mons', getMons);
+addRoute(router, '/trainers', getTrainers);
 
-  res.json(items);
-});
-
-router.get('/trainers', async (_, res) => {
-  const items = await getTrainers();
-
-  if (items.error) {
-    res.status(500);
-    res.json({ error: items.error });
-
-    return;
-  }
-
-  res.json(items);
-});
+addRoute(router, '/players', getPlayers);
+addRoute(router, '/rewards', getRewards);
 
 app.use(bodyParser.json());
 app.use('/.netlify/functions/simple-be', router);

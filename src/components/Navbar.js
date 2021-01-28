@@ -1,4 +1,4 @@
-import { ReactComponent as Logo } from '../sprites/pokeball.svg';
+import { ReactComponent as Logo } from '../assets/creature.svg';
 
 import React from 'react';
 import styled from 'styled-components';
@@ -10,7 +10,6 @@ const Container = styled.header`
     transparent ? 'transparent' : theme.accent};
 
   font-family: ${fontFamily.serif};
-  font-size: 1.2rem;
   padding: 1.5rem 2rem;
 
   position: sticky;
@@ -48,11 +47,15 @@ const HomeIcon = styled.span`
   &:hover {
     opacity: 0.75;
   }
+
+  > svg {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
 `;
 
 const Extra = styled.span`
   margin-left: 0.5rem;
-  font-size: 1.2rem;
 `;
 
 const Navigation = styled.nav`
@@ -73,15 +76,14 @@ const Navbar = ({ transparent }) => {
           </HomeIcon>
 
           <Extra>
-            <Link className="extra" href="/catch">
-              Catch!
+            <Link className="extra" href="/treasure">
+              Apri un forziere!
             </Link>
           </Extra>
         </LeftSection>
 
         <Navigation>
           <Link href="/pages">Leggi la storia</Link>
-          <Link href="/trainers">Allenatori</Link>
           <Link href="/about">About</Link>
         </Navigation>
       </Content>

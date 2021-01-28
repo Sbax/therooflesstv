@@ -4,7 +4,7 @@ import { Link, useRoute } from 'wouter';
 import NoPage from '../components/NoPage';
 import NotFound from './NotFound';
 import Page from '../components/Page';
-import { ReactComponent as Logo } from '../sprites/pokeball.svg';
+import { ReactComponent as Logo } from '../assets/creature.svg';
 import { breakpoints, fontFamily, theme } from '../theme/theme';
 
 const Sidebar = styled.aside`
@@ -14,9 +14,9 @@ const Sidebar = styled.aside`
 `;
 
 const HomeIcon = styled.span`
-  display: inline-flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
   font-size: 2rem;
   padding: 1.5rem 0;
@@ -25,10 +25,15 @@ const HomeIcon = styled.span`
 
   transition: opacity 300ms ease-in-out;
 
+  > svg {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
   > span {
     line-height: 0.68;
     margin-left: 0.5rem;
-    font-size: 2rem;
+    font-size: 1.2rem;
 
     font-family: ${fontFamily.serif};
   }
@@ -39,7 +44,6 @@ const HomeIcon = styled.span`
 `;
 
 const Title = styled.h1`
-  font-size: 1.5rem;
   font-family: ${fontFamily.serif};
   margin-bottom: 1rem;
 `;

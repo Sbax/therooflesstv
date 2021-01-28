@@ -1,7 +1,8 @@
 import { createContext } from 'react';
 
 const Context = createContext({
-  initialized: false,
+  initializedEnnara: false,
+  initializedMons: false,
   loading: false,
 });
 

@@ -1,10 +1,10 @@
 const { google } = require('googleapis');
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
-const spreadsheetId = process.env.DATA_SHEET;
+
 const googleKey = process.env.GOOGLE_SHEETS_API_KEY;
 
-const getSheet = (range) => {
+const getSheet = (sheet, range) => {
   const sheets = google.sheets({
     version: 'v4',
     auth: googleKey,
@@ -13,7 +13,7 @@ const getSheet = (range) => {
   return new Promise((resolve, reject) => {
     sheets.spreadsheets.values.get(
       {
-        spreadsheetId,
+        spreadsheetId: sheet,
         range,
       },
       (error, res) => {
@@ -29,86 +29,7 @@ const getSheet = (range) => {
   });
 };
 
-const toKebabCase = (string) =>
-  string
-    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-    .map((x) => x.toLowerCase())
-    .join('-');
-
-const getTrainers = () =>
-  getSheet('Trainers!A2:IX')
-    .then(
-      (response) =>
-        (response || []).reduce(
-          ({ trainers }, [number, name, ...team]) => ({
-            trainers: [
-              ...trainers,
-              {
-                number,
-                name,
-                slug: toKebabCase(name),
-                team: team.filter((name) => !!name),
-              },
-            ],
-          }),
-          {
-            trainers: [],
-          }
-        ).trainers
-    )
-    .catch((error) => error);
-
-const getMons = () =>
-  getSheet('Database!A2:M')
-    .then(
-      (response) =>
-        (response || []).reduce(
-          (
-            { mons },
-            [
-              _,
-              sprite_url,
-              generation,
-              id_nb,
-              name,
-              type_1,
-              type_2,
-              slug,
-              catch_rate_base255,
-              is_legendary,
-              cry,
-              dex,
-              rarity,
-            ]
-          ) => ({
-            mons: [
-              ...mons,
-              {
-                sprite: sprite_url,
-                generation: parseInt(generation),
-                number: id_nb,
-                name,
-                types: [type_1, type_2]
-                  .filter(Boolean)
-                  .map((string) => string.toLowerCase()),
-                catchRate: parseInt(catch_rate_base255),
-                slug,
-                legendary: is_legendary === 'TRUE',
-                cry,
-                dex,
-                rarity: parseInt(rarity),
-              },
-            ],
-          }),
-          {
-            mons: [],
-          }
-        ).mons
-    )
-    .catch((error) => error);
-
 module.exports = {
   SCOPES,
-  getMons,
-  getTrainers,
+  getSheet,
 };

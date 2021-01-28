@@ -1,9 +1,9 @@
+import { faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Checkbox from '../Checkbox';
 import { breakpoints, fontFamily } from '../theme/theme';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
+import Checkbox from './retro/Checkbox';
 
 const Collapsed = styled.section`
   margin-top: 1rem;

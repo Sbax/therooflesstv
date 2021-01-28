@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useLocation, useRoute } from 'wouter';
-import Button from '../components/Button';
 import CatchBox from '../components/CatchBox';
+import Cry from '../components/Cry';
 import Filters from '../components/Filters';
 import Loader from '../components/Loader';
 import Mon from '../components/Mon';
 import Navbar from '../components/Navbar';
-import fetchData from '../context/fetchData';
+import Button from '../components/retro/Button';
+import fetchMons from '../context/fetchMons';
 import Context from '../context/store';
-import { randomMon } from '../monLogic';
-import { breakpoints } from '../theme/theme';
+import { randomMon } from '../logic/mon';
 import pokedex from '../sprites/pokedex.png';
-import Cry from '../components/Cry';
+import { breakpoints } from '../theme/theme';
 
 const key = 'therooflesstv-pokemon';
 const settingsKey = `${key}:settings`;
@@ -79,12 +79,12 @@ const getSettings = () => {
 };
 
 const Catch = () => {
-  fetchData();
+  fetchMons();
 
   const settings = getSettings();
 
   const { state } = useContext(Context);
-  const { initialized, loading } = state;
+  const { initializedMons, loading } = state;
   const { mons } = state;
 
   const [match, params] = useRoute('/catch/:slug?');
@@ -116,7 +116,7 @@ const Catch = () => {
       <Navbar />
       <Container>
         {(() => {
-          if (!initialized || loading) return <Loader />;
+          if (!initializedMons || loading) return <Loader />;
 
           return (
             <>

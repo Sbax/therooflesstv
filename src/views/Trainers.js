@@ -4,7 +4,7 @@ import Input from '../components/Input';
 import Loader from '../components/Loader';
 import Navbar from '../components/Navbar';
 import Team from '../components/Team';
-import fetchData from '../context/fetchData';
+import fetchMons from '../context/fetchMons';
 import Context from '../context/store';
 import { breakpoints, fontFamily, theme } from '../theme/theme';
 
@@ -41,9 +41,9 @@ const Trainer = styled.div`
 
 const Trainers = () => {
   const { state } = useContext(Context);
-  const { initialized, loading } = state;
+  const { initializedMons, loading } = state;
 
-  fetchData();
+  fetchMons();
 
   const [search, setSearch] = useState('');
 
@@ -54,7 +54,7 @@ const Trainers = () => {
       <Navbar />
       <Container>
         {(() => {
-          if (!initialized || loading) return <Loader />;
+          if (!initializedMons || loading) return <Loader />;
           const { trainers } = state;
 
           return (

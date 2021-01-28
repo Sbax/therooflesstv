@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import missingno from '../sprites/missingno.png';
-import { fontFamily } from '../theme/theme';
-import Type from './Type';
+import { fontFamily } from '../../theme/theme';
+import missingno from '../../sprites/missingno.png';
+import Type from '../Type';
 
 const Container = styled.article`
   display: flex;

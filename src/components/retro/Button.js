@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { fontFamily, theme } from '../theme/theme';
+import { fontFamily, theme } from '../../theme/theme';
 import chroma from 'chroma-js';
 
 const Button = styled.button`

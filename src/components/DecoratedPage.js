@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Pokemon from '../backgrounds/components/Pokemon';
+import Forest from '../backgrounds/components/Forest';
 import { breakpoints } from '../theme/theme';
 
 const Container = styled.section`
@@ -32,7 +32,7 @@ const DecoratedPage = ({ children }) => {
   return (
     <Container as="main">
       <Illustration>
-        <Pokemon />
+        <Forest />
       </Illustration>
       {children}
     </Container>

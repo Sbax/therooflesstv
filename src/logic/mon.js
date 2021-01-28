@@ -1,10 +1,4 @@
-const randomNumber = (min = 0, max = 255) =>
-  Math.floor(Math.random() * (max - min + 1) + min);
-
-const randomFromArray = (array) =>
-  array[Math.floor(Math.random() * array.length)];
-
-const sumUpTo = (n) => (n * (n + 1)) / 2;
+import { randomFromArray, randomNumber, sumUpTo } from './utils';
 
 export const catchMon = (ballModifier, catchRate) => {
   if (ballModifier === 0) return true;
